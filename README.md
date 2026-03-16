@@ -4,20 +4,34 @@ A production-ready Authentication & Authorization system built with **Node.js**,
 
 ---
 
-## 🚀 Key Features
+## 🚀 Features Breakdown
 
-* **Secure Authentication:** Multi-layered security with password hashing using `bcrypt`.
-* **Dual Token System:** Short-lived **Access Tokens** for authorization and long-lived **Refresh Tokens** for session persistence.
-* **Token Rotation:** Enhanced security by rotating Refresh Tokens on every successful use (prevents replay attacks).
-* **Email Verification:** Complete account activation flow via **Nodemailer** (Ethereal/Gmail integration).
-* **Password Recovery:** Secure "Forgot Password" flow using expiration-bound SHA-256 hashed tokens.
-* **Security Middlewares:**
-    * **Rate Limiting:** Protects against brute-force attacks on sensitive endpoints.
-    * **Helmet.js:** Secures HTTP headers to prevent common web vulnerabilities.
-    * **CORS:** Configured for controlled cross-origin resource sharing.
-* **Clean Architecture:** Implements a strict separation of concerns using Controllers, Services, and Repositories for scalability.
+### 🔐 Authentication & Session Management
+* **User Registration:** Secure onboarding with data validation.
+* **Secure Login:** Credential-based access with brute-force protection.
+* **JWT Authentication:** Implementation of industry-standard JSON Web Tokens.
+* **Advanced Token Strategy:** * **Access Tokens:** Short-lived tokens for secure API access.
+    * **Refresh Tokens:** Long-lived tokens for maintaining sessions.
+    * **Refresh Token Rotation:** Enhanced security by issuing a new refresh token on every rotation (prevents replay attacks).
+* **Cookie-based Sessions:** Securely storing tokens in `HttpOnly` and `SameSite` cookies.
+* **Logout System:** Securely invalidating sessions and clearing cookies.
+* **Logout From All Devices:** Revoking all active refresh tokens for a specific user.
 
----
+### 🛡️ Security & Authorization
+* **RBAC Authorization:** Role-Based Access Control (Admin, User, etc.) to manage permissions.
+* **Protected Routes:** Middleware-level checks to guard sensitive endpoints.
+* **Global Error Handling:** Centralized error management for consistent API responses.
+* **Environment Configuration:** Secure management of secrets using `.env`.
+
+### 📧 Account Management Flows
+* **Email Verification:** Automated account activation via Nodemailer.
+* **Resend Verification:** Logic to re-trigger activation emails.
+* **Forgot/Reset Password:** Secure, token-based password recovery flow.
+* **Google OAuth 2.0:** One-click social login integration for better UX.
+
+### 🏗️ Architecture & Dev-Ops
+* **Production Folder Structure:** Scalable organization (Controllers, Services, Repositories).
+* **Repository Design Pattern:** Decoupling database logic from business rules.
 
 ## 🛠️ Tech Stack
 
